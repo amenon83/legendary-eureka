@@ -1,7 +1,6 @@
 # nnUNet Documentation for Omen PC (Ubuntu)
 
 ## Table of Contents
-- [Introduction](#introduction)
 - [Installation](#installation)
 - [Running nnUNet](#running-nnunet)
   - [Data Upload](#data-upload)
@@ -11,10 +10,6 @@
   - [Training](#training)
   - [Prediction](#prediction)
   - [Plotting Predictions](#plotting-predictions)
-
-## Introduction
-
-We're using nnUNet for particle identification on the Omen PC running Ubuntu.
 
 ## Installation
 
@@ -62,7 +57,6 @@ We're using nnUNet for particle identification on the Omen PC running Ubuntu.
    ```bash
    pip install --upgrade git+https://github.com/FabianIsensee/hiddenlayer
    ```
-   > **Note:** This may not work as expected
 
 8. **Configure Spyder**
    - Go to **Tools → Preferences → Python Interpreter**
