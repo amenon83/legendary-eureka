@@ -13,7 +13,7 @@
 
 ## Installation
 
-> **Note:** nnUNet is already installed. This section is for reinstallation if issues arise. Users can skip this section if they don't need it.
+> **Note:** nnUNet is already installed. This section is for troubleshooting if issues arise. You can skip this section if you don't need it.
 
 ### Setup Process
 
@@ -94,33 +94,30 @@
 ### Spyder Configuration
 
 1. **Open Spyder**
-   - Launch through terminal or application
+   - Launch through terminal (type 'spyder') or through the app
 
 2. **Navigate to Scripts**
-   - Click **Files** (middle right panel)
+   - Click **Files** (middle right, among 'Help,' 'Variable Explorer,' 'Debugger,' 'Plots,' 'Files')
    - Navigate to `/home/liyong/Desktop/nnUNet_Project/Scripts`
 
 3. **Configure Training Script**
    - Open `updated_nnu_code.py`
-   - Update file paths:
+   - Update the following file path variables:
      - `merged_clog_files`: Full path to training `.clog` file
        ```python
        "/home/liyong/Desktop/nnUNet_Project/nnUNet_Data/Training_Data/{FILENAME}.clog"
        ```
-     - `output_base`: Path to your dataset folder
+     - `output_base`: Full path to your dataset folder
        ```python
        "/home/liyong/Desktop/nnUNet_Project/nnUNet_Data/nnUNet_raw/Dataset###_name"
        ```
 
 4. **Run Script**
-   - Press the green run button
-   - Verify creation of:
+   - Press the green run button at the top of the Spyder IDE
+   - You can check that the folder named `Dataset###_name` has the following:
      - `imagesTr` folder
      - `labelsTr` folder
      - `dataset.json` file
-
-5. **Verify Environment Variables**
-   - Ensure the four environment variables in `~/.bashrc` are correct
 
 ### Preprocessing
 
@@ -148,26 +145,27 @@
 ### Training
 
 1. **Optional: Monitor Memory Usage**
+   - You can open a separate terminal and use htop to monitor the PC's memory while training
    ```bash
    htop
    ```
 
-2. **Start Training**
+3. **Start Training**
    ```bash
    nnUNetv2_train ### 2d 0
    ```
    - Replace `###` with your dataset ID
 
-3. **Monitor Progress**
+4. **Monitor Progress**
    - Training continues until EMA pseudo Dice score stops improving
-   - Look for: "Yayy! New best EMA pseudo Dice: ..."
+   - It'll say "Yayy! New best EMA pseudo Dice: ..." each time the Dice score improves
    - nnUNet runs up to 1000 epochs by default
-   - Training on Omen PC is slow - stop when no longer improving
+   - Training on the Omen PC is slow - stop when the Dice score no longer improves consistently
 
-4. **Stop Training**
-   - Press `Ctrl + C` **TWO TIMES**
+5. **Stop Training**
+   - Press `Ctrl + C` (you might have to do this twice to stop fully)
 
-5. **Rename Checkpoint File**
+6. **Rename Checkpoint File**
    - Navigate to: `/home/liyong/Desktop/nnUNet_Project/nnUNet_Data/nnUNet_results/Dataset###_name/nnUNetTrainer__nnUNetPlans__2d/fold_0`
    - Rename `checkpoint_best.pth` to `checkpoint_final.pth`
    - **Why:** This file is only automatically renamed when Epoch 1000 is reached, but we usually don't train that long
@@ -179,8 +177,8 @@
 
 2. **Create Output Folder**
    - Navigate to `/home/liyong/Desktop/nnUNet_Project/Prediction_NIfTI_Images/`
-   - Create a new folder with descriptive name
-   - This will store prediction NIfTI images
+   - Create a new folder with some descriptive name (e.g. `tutorial`)
+   - This new folder will store prediction NIfTI images (`tutorial/images` and `tutorial/predictions`)
 
 3. **Configure Prediction Script**
    - In Spyder, navigate to `/home/liyong/Desktop/nnUNet_Project/Scripts`
@@ -194,11 +192,11 @@
        ```python
        "/home/liyong/Desktop/nnUNet_Project/Prediction_NIfTI_Images/{FOLDER_NAME}/images"
        ```
-       > **Important:** Include `/images` after folder name
+       > **Important:** Include `/images` after folder name. The script will automatically create this subfolder
 
 4. **Run Script**
    - Execute the script
-   - Verify the `images` folder is populated
+   - You can check that the `images` folder is populated
 
 5. **Generate Predictions**
    ```bash
@@ -232,5 +230,5 @@
    - Console should display: "Visualizing: Frame..."
 
 3. **View Results**
-   - Click **Plots** (middle right panel)
+   - Click **Plots** (middle right, among 'Help,' 'Variable Explorer,' 'Debugger,' 'Plots,' 'Files')
    - View prediction plots as script runs
