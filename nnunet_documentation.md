@@ -3,8 +3,8 @@
 ## Table of Contents
 - [Installation](#installation)
 - [Running nnUNet](#running-nnunet)
-  - [Upload Training and Prediction Data](#data-upload)
-  - [Dataset Folder Setup](#dataset-setup)
+  - [Upload Training and Prediction Data](#upload-training-and-prediction-data)
+  - [Dataset Folder Setup](#dataset-folder-setup)
   - [Preprocessing](#preprocessing)
   - [Training](#training)
   - [Prediction](#prediction)
