@@ -3,9 +3,8 @@
 ## Table of Contents
 - [Installation](#installation)
 - [Running nnUNet](#running-nnunet)
-  - [Data Upload](#data-upload)
-  - [Dataset Setup](#dataset-setup)
-  - [Spyder Configuration](#spyder-configuration)
+  - [Upload Training and Prediction Data](#data-upload)
+  - [Dataset Folder Setup](#dataset-setup)
   - [Preprocessing](#preprocessing)
   - [Training](#training)
   - [Prediction](#prediction)
@@ -70,7 +69,7 @@
 
 ## Running nnUNet
 
-### Data Upload
+### Upload Training and Prediction Data
 
 1. Open Files and navigate to `/home/liyong/Desktop/nnUNet_Project/nnUNet_Data`
 
@@ -82,7 +81,7 @@
    - Place prediction `.clog` file in the `Prediction_Data` folder
    - This test data is what nnUNet will make predictions on
 
-### Dataset Setup
+### Dataset Folder Setup
 
 1. **Create Dataset Folder**
    - Navigate to the `nnUNet_raw` folder
@@ -91,16 +90,14 @@
      - `name` = any descriptive name
      - Example: `Dataset001_tutorial`
 
-### Spyder Configuration
-
-1. **Open Spyder**
+2. **Open Spyder**
    - Launch through terminal (type 'spyder') or through the app
 
-2. **Navigate to Scripts**
+3. **Navigate to Scripts**
    - Click **Files** (middle right, among 'Help,' 'Variable Explorer,' 'Debugger,' 'Plots,' 'Files')
    - Navigate to `/home/liyong/Desktop/nnUNet_Project/Scripts`
 
-3. **Configure Training Script**
+4. **Configure Training Script**
    - Open `updated_nnu_code.py`
    - Update the following file path variables:
      - `merged_clog_files`: Full path to training `.clog` file
@@ -112,7 +109,7 @@
        "/home/liyong/Desktop/nnUNet_Project/nnUNet_Data/nnUNet_raw/Dataset###_name"
        ```
 
-4. **Run Script**
+5. **Run Script**
    - Press the green run button at the top of the Spyder IDE
    - You can check that the folder named `Dataset###_name` has the following:
      - `imagesTr` folder
